@@ -39,4 +39,10 @@ public class Address
         {
             this.county = county;
         }
+    public String toString()
+        {
+            String desc;
+            desc = getStreet() + ", " + getCityTown() + ", " + getCityTown();
+            return desc;
+        }
 }

@@ -7,12 +7,18 @@ public class Employee
     private static int employeeNumCount = 1000;
     private int employeeNum;
     private Address address;
+    private String type;
+    private String name;
 
-    public Employee(Address address)
+
+
+    public Employee(Address address, String type, String name)
         {
             setEmployeeNum(employeeNumCount);
             setAddress(address);
             employeeNumCount++;
+            setType(type);
+            setName(name);
         }
         
     public int getEmployeeNum() 
@@ -23,12 +29,35 @@ public class Employee
         {
             this.employeeNum = employeeNum;
         }
-    public Address getAddress() 
+    public String getAddress() 
         {
-            return address;
+            return address.toString();
         }
     public void setAddress(Address address) 
         {
             this.address = address;
+        }
+    public String getType() 
+        {
+            return type;
+        }
+    public void setType(String type) 
+        {
+            this.type = type;
+        }
+    public String getName() 
+        {
+            return name;
+        }
+    public void setName(String name) 
+        {
+            this.name = name;
+        }
+
+    public String toString()
+        {
+            String desc;
+            desc = "Employee num: " + getEmployeeNum() + "\nName: " + getName() + "\nAddress: " + getAddress();
+            return desc;
         }
 }

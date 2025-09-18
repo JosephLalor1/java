@@ -14,7 +14,6 @@ public class Office
             setRoomNum(roomNumCount);
             roomNumCount++;
             employees = new Employee[2];
-            numEmp++;
         }
     
     public void addEmployee(Employee employee)
@@ -22,6 +21,7 @@ public class Office
             if (numEmp < 2)
                 {
                     employees[numEmp] = employee;
+                    numEmp++;
                 }
             else
                 {
@@ -36,6 +36,27 @@ public class Office
     public void setRoomNum(int roomNum) 
         {
             this.roomNum = roomNum;
+        }
+    public int getNumEmp() 
+        {
+            return numEmp;
+        }
+
+    public String employeeDetails()
+        {
+            String desc = "";
+            for (int i = 0; i <= numEmp; i++)  
+                {
+                    desc = desc + employees[i].toString() + "\n";
+                }
+            return desc;
+        }
+    
+    public String toString()
+        {
+            String desc;
+            desc = "Office number: " + getRoomNum() + "\nEmployees: " + employeeDetails();
+            return desc;
         }
 
 }
