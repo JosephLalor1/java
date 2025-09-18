@@ -5,6 +5,7 @@
 public class Employee 
 {
     private static int employeeNumCount = 1000;
+    private static int count = 0;
     private int employeeNum;
     private Address address;
     private String type;
@@ -17,6 +18,7 @@ public class Employee
             setEmployeeNum(employeeNumCount);
             setAddress(address);
             employeeNumCount++;
+            count++;
             setType(type);
             setName(name);
         }
@@ -52,6 +54,10 @@ public class Employee
     public void setName(String name) 
         {
             this.name = name;
+        }
+    public static int getCount() 
+        {
+            return count;
         }
 
     public String toString()

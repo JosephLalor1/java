@@ -8,6 +8,13 @@ public class Address
     private String cityTown;
     private String county;
 
+    public Address()
+        {
+            setStreet("Unknown");
+            setCityTown("Unknown");
+            setCounty("Unknown");
+        }
+
     public Address(String street, String cityTown, String county)
         {
             setStreet(street);

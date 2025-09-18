@@ -45,7 +45,7 @@ public class Office
     public String employeeDetails()
         {
             String desc = "";
-            for (int i = 0; i <= numEmp; i++)  
+            for (int i = 0; i < numEmp; i++)  
                 {
                     desc = desc + employees[i].toString() + "\n";
                 }

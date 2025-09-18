@@ -12,12 +12,11 @@ public class MyHR
     public static void main (String args[])
         {
             Office offices[] = new Office[3];
-            Office office1 = new Office();
-            Office office2 = new Office();
-            Office office3 = new Office();
-            offices[0] = office1;
-            offices[1] = office2;
-            offices[2] = office3;
+            for (int i = 0; i < 3; i++)
+                {
+                    offices[i] = new Office();
+                }
+            Employee employees[] = new Employee[5];
             int menuSelect;
             System.out.print(menu());
             menuSelect = EasyIn.getInt();
@@ -27,14 +26,21 @@ public class MyHR
                         {
                             for (int i = 0; i < 3; i++)
                                 {
-                                    System.out.print(offices[i].toString());
+                                    if (offices[i].getNumEmp() > 0)
+                                        {
+                                            System.out.print(offices[i].toString() + "\n");
+                                        }
+                                    else    
+                                        {
+                                            System.out.print(offices[i].getRoomNum() + "\n");
+                                        }
                                 }
                         }
                     else if (menuSelect == 2)
                         {
-                            Employee employee;
                             String name;
                             int typeSelect;
+                            int officeSelect;
                             String type = "";
                             String street;
                             String townCity;
@@ -42,7 +48,7 @@ public class MyHR
                             Address address;
                             System.out.print("\nEnter employee name: ");
                             name = EasyIn.getString();
-                            System.out.print("\nSelect employee type:\n1. Staff\n2. Manager");
+                            System.out.print("\nSelect employee type:\n1. Staff\n2. Manager\n");
                             typeSelect = EasyIn.getInt();
                             if (typeSelect == 1)
                                 {
@@ -60,8 +66,19 @@ public class MyHR
                             county = EasyIn.getString();
 
                             address = new Address(street, townCity, county);
-                            employee = new Employee(address, type, name);
+                            employees[Employee.getCount()] = new Employee(address, type, name);
+
+                            System.out.print("\nTo which office should the employee be added?\n");
+                            for (int i = 0; i < 3; i++)
+                                {
+                                    System.out.print(offices[i].getRoomNum() + "\n");
+                                }
+                            officeSelect = EasyIn.getInt();
+                            offices[officeSelect - 100].addEmployee(employees[Employee.getCount()]);
                         }
+                    EasyIn.pause();
+                    System.out.print(menu());
+                    menuSelect = EasyIn.getInt();
                 }
         }
 }
