@@ -10,16 +10,26 @@ public class Employee
     private Address address;
     private String type;
     private String name;
+    private String car;
 
 
 
-    public Employee(Address address, String type, String name)
+    public Employee(Address address, String name)
         {
             setEmployeeNum(employeeNumCount);
             setAddress(address);
             employeeNumCount++;
             count++;
-            setType(type);
+            setType("Staff");
+            setName(name);
+        }
+    public Employee(Address address, String car, String name)
+        {
+            setEmployeeNum(employeeNumCount);
+            setAddress(address);
+            employeeNumCount++;
+            count++;
+            setType("Manager",  car);
             setName(name);
         }
         
@@ -43,9 +53,18 @@ public class Employee
         {
             return type;
         }
+    public String getCar() 
+        {
+            return car;
+        }
     public void setType(String type) 
         {
             this.type = type;
+        }
+    public void setType(String type, String car)
+        {
+            this.type = type;
+            this.car = car;
         }
     public String getName() 
         {
@@ -63,7 +82,11 @@ public class Employee
     public String toString()
         {
             String desc;
-            desc = "Employee num: " + getEmployeeNum() + "\nName: " + getName() + "\nAddress: " + getAddress();
+            desc = "\nEmployee num: " + getEmployeeNum() + "\nName: " + getName() + "\nAddress: " + getAddress() + "\nRole: " + getType();
+            if (getType() == "Manager")
+                {
+                    desc = desc + "\nCar: " + getCar();
+                }
             return desc;
         }
 }

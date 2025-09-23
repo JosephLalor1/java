@@ -32,7 +32,7 @@ public class MyHR
                                         }
                                     else    
                                         {
-                                            System.out.print(offices[i].getRoomNum() + "\n");
+                                            System.out.print("Office number " + offices[i].getRoomNum() + ": empty\n");
                                         }
                                 }
                         }
@@ -41,7 +41,7 @@ public class MyHR
                             String name;
                             int typeSelect;
                             int officeSelect;
-                            String type = "";
+                            String car = "";
                             String street;
                             String townCity;
                             String county;
@@ -50,13 +50,10 @@ public class MyHR
                             name = EasyIn.getString();
                             System.out.print("\nSelect employee type:\n1. Staff\n2. Manager\n");
                             typeSelect = EasyIn.getInt();
-                            if (typeSelect == 1)
+                            if (typeSelect == 2)
                                 {
-                                    type = "Staff";
-                                }
-                            else if (typeSelect == 2)
-                                {
-                                    type = "Manager";
+                                    System.out.print("\nWhat type of car does the manager have?\n");
+                                    car = EasyIn.getString();
                                 }
                             System.out.print("\nEnter address street: ");
                             street = EasyIn.getString();
@@ -66,7 +63,15 @@ public class MyHR
                             county = EasyIn.getString();
 
                             address = new Address(street, townCity, county);
-                            employees[Employee.getCount()] = new Employee(address, type, name);
+                            if (typeSelect == 1)
+                                {
+                                    employees[Employee.getCount()] = new Employee(address, name);
+                                }
+                            else if (typeSelect == 2)
+                                {
+                                    employees[Employee.getCount()] = new Employee(address, car, name);
+                                }
+                            
 
                             System.out.print("\nTo which office should the employee be added?\n");
                             for (int i = 0; i < 3; i++)
@@ -74,9 +79,24 @@ public class MyHR
                                     System.out.print(offices[i].getRoomNum() + "\n");
                                 }
                             officeSelect = EasyIn.getInt();
-                            offices[officeSelect - 100].addEmployee(employees[Employee.getCount()]);
+                            offices[officeSelect - 100].addEmployee(employees[Employee.getCount() - 1]);
                         }
-                    EasyIn.pause();
+                    else if (menuSelect == 3)
+                        {
+                            if (Employee.getCount() == 0)
+                                        {
+                                            System.out.print("There are no employees added!\n");
+                                        }
+                                    else
+                                        {
+                                            for (int i = 0; i < Employee.getCount(); i++)
+                                                {
+                                                    
+                                                            System.out.print(employees[i].toString() + "\n");  
+                                                }
+                                        }
+                        }
+                    EasyIn.pause("Press Enter to continue");
                     System.out.print(menu());
                     menuSelect = EasyIn.getInt();
                 }
