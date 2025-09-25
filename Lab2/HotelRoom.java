@@ -6,23 +6,26 @@ public class HotelRoom
     {
         private int roomNumber;
         private String roomType;
-        private Boolean isOccupied = false;
         private double rate;
+        private boolean occupied;
 
         public HotelRoom()
             {
                 setRoomNumber(0);
                 setRoomType("Single");
                 setRate(0);
-                setIsOccupied(false);
             }
 
-        public HotelRoom(int num, String type, Boolean occ, double rateNum)
+        public HotelRoom(int num, String type, double rateNum)
             {
-                setIsOccupied(false);
-                setRate(0);
-                setRoomNumber(0);
-                setRoomType("Single");
+
+                if (!isOccupied())
+                    {
+                        setRate(rateNum);
+                        setRoomNumber(num);
+                        setRoomType(type);
+                    }
+
             }
 
         public void setRoomNumber(int num)
@@ -35,16 +38,13 @@ public class HotelRoom
                 rate = num;
             }
         
-        public void setIsOccupied(Boolean occ)
+        public Boolean isOccupied()
             {
-                if (!isOccupied || !occ)
+                if (this.isOccupied())
                     {
-                        isOccupied = occ;
+                        return true;
                     }
-                else if (isOccupied && occ)
-                    {
-                        System.out.println("Input invalid");
-                    }
+                return false;
             }
         
         public void setRoomType(String type)
@@ -68,11 +68,6 @@ public class HotelRoom
         public double getRate()
             {
                 return rate;
-            }
-        
-        public Boolean getIsOccupied()
-            {
-                return isOccupied;
             }
 
         public String getRoomType()
