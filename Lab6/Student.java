@@ -1,51 +1,50 @@
 public class Student extends Person 
 {
-    private int numCourses = 0;
     private String courses[];
     private int grades[];
-    private int count;
+    private int numCourses;
 
     public Student(String name, String address)
         {
             super(name, address);
             courses = new String[5];
             grades = new int[5];
-            count = 0;
+            numCourses = 0;
         }
     
     public void addCourseGrade(String course, int grade)
         {
-            courses[count] = course;
-            grades[count] = grade
-            count++;
+            courses[numCourses] = course;
+            grades[numCourses] = grade;
+            numCourses++;
         }
     public void printGrades()
         {
-            for(int i = 0; i < count; i++)
+            for(int i = 0; i < numCourses; i++)
                 {
                     System.out.print("\n" + courses[i] + ": " + grades[i]);
                 }
         }
     public double getAverageGrade()
         {
-            private double sum = 0;
-            private double temp;                //for conversion to double
-            for (int i = 0; i < count; i++)
+            double sum = 0;
+            double temp;                //for conversion to double
+            for (int i = 0; i < numCourses; i++)
                 {
                     temp = grades[i];
                     sum = sum + temp;
                 }
-            temp = count;
-            return sum/temp
+            temp = numCourses;
+            return sum/temp;
         }
     public String toString()
         {
-            private String summary = "";
+            String summary = "";
             summary = super.toString();
-            for(int i = 0; i < count; i++)
+            for(int i = 0; i < numCourses; i++)
                 {
                     summary = summary + "\n" + courses[i] + ": " + grades[i];
                 }
-            return summary
+            return summary;
         }
 }
