@@ -46,6 +46,10 @@ public class HotelRoom
                     }
                 return false;
             }
+        public void setIsOccupied(Boolean occupied)
+            {
+                return true;
+            }
         
         public void setRoomType(String type)
             {
