@@ -42,6 +42,8 @@ public class Teacher extends Person
                         {
                             courses[i] = courses[i + 1];
                         }
+                    numCourses--;
+                    courses[numCourses] = null;
                     return true;
                 }
             else    

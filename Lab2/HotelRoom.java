@@ -24,6 +24,7 @@ public class HotelRoom
                         setRate(rateNum);
                         setRoomNumber(num);
                         setRoomType(type);
+                        setIsOccupied();
                     }
 
             }
@@ -46,9 +47,9 @@ public class HotelRoom
                     }
                 return false;
             }
-        public void setIsOccupied(Boolean occupied)
+        public void setIsOccupied()
             {
-                return true;
+                occupied = true;
             }
         
         public void setRoomType(String type)
