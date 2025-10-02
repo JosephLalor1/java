@@ -26,6 +26,10 @@ public class HotelRoom
                         setRoomType(type);
                         setIsOccupied();
                     }
+                else
+                    {
+                        System.out.println("Already occupied");
+                    }
 
             }
 
@@ -41,7 +45,7 @@ public class HotelRoom
         
         public Boolean isOccupied()
             {
-                if (this.isOccupied())
+                if (occupied)
                     {
                         return true;
                     }
