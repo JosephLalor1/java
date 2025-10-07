@@ -17,7 +17,7 @@ class Cylinder extends ThreeDShape
 
     public double volume()
         {
-            return getHeight() * Math.PI * Math.pow(getRadius(), 2);        
+            return getHeight() * Math.PI * (getRadius() * getRadius());        
         }
     
     public double area()

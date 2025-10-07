@@ -9,7 +9,7 @@ class Circle extends TwoDShape
     
     public double area()
         {
-            return Math.PI * Math.pow(getRadius(), 2);
+            return Math.PI * (getRadius() * getRadius());
         }
 
     public String toString()
