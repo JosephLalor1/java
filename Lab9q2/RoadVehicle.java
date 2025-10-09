@@ -1,4 +1,4 @@
-package oosd.inheritance;
+
 
 public class RoadVehicle{
 	private int wheels;	    //How many wheels it has

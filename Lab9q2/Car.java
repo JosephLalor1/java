@@ -1,6 +1,5 @@
-package oosd.inheritance;
 
-public class Car extends RoadVehicle{
+public class Car extends RoadVehicle implements ImportDuty{
 	private String carType;
  
 	public Car() {
@@ -19,4 +18,9 @@ public class Car extends RoadVehicle{
 	public String getType() {
 		return carType;
 	}
+
+	public void calculateDuty()
+		{
+			System.out.println("Import duty: " + super.getWheels() * CARTAXRATE);
+		}
 }

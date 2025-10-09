@@ -1,6 +1,7 @@
-package oosd.inheritance;
 
-public class Hgv extends RoadVehicle{
+
+public class Hgv extends RoadVehicle implements ImportDuty
+{
 	private int cargo;
 
 	public Hgv(){ 	
@@ -19,4 +20,9 @@ public class Hgv extends RoadVehicle{
 	public int getCargo(){
 		return cargo;
 		}	
+	
+	public void calculateDuty()
+		{
+			System.out.println("Import duty: " + super.getWheels() * getCargo() * HGVTAXRATE);
+		}
 }
