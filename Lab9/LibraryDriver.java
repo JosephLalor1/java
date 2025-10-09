@@ -9,5 +9,6 @@ public class LibraryDriver
             list[1] = cd;
 
             list[0].calculatePrice();
+            list[1].calculatePrice();
         }
 }
