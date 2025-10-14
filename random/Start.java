@@ -3,8 +3,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-public class Driver {
-    public static void main( String [] args )
+public class Start {
+    public static void main(String[] args) throws ClassNotFoundException
         {
             final String DATABASE_URL = "jdbc:mysql://localhost/deliveryapp";
             Connection connection = null;
@@ -13,6 +13,7 @@ public class Driver {
             int i = 0;
         try 
             {
+                Class.forName("com.mysql.jdbc.Driver");
                 // establish connection to database
                 connection = DriverManager.getConnection(DATABASE_URL, "root", "pleasantBreeze1645");
                 // create Prepared Statement for inserting data into table
