@@ -1,7 +1,9 @@
+package src.main.java;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
 public class Start {
     public static void main(String[] args) throws ClassNotFoundException
@@ -13,7 +15,6 @@ public class Start {
             int i = 0;
         try 
             {
-                Class.forName("com.mysql.jdbc.Driver");
                 // establish connection to database
                 connection = DriverManager.getConnection(DATABASE_URL, "root", "pleasantBreeze1645");
                 // create Prepared Statement for inserting data into table
