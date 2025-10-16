@@ -45,8 +45,9 @@ public class Operations {
                         }
                 }
         }
-    public static void Display(String table)
+    public static String Display(String table)
         {
+            String outp = "";
             PreparedStatement pstat = null;
             ResultSet resultSet = null;
             try 
@@ -58,20 +59,20 @@ public class Operations {
                     ResultSetMetaData metaData = resultSet.getMetaData();
                     // insert data into table
                     int numberOfColumns = metaData.getColumnCount();
-                    System.out.println("Orders Database:\n");
+                    outp= "Orders Database:\n";
 
                     for ( int i = 1; i <= numberOfColumns; i++ )
                         {
-                            System.out. print (metaData.getColumnName( i ) + "\t");
-                            System.out. println () ;
+                            outp = metaData.getColumnName( i ) + "\t";
+                            outp = "\n";
                         }
 
                     while( resultSet .next() )
                         {
                             for ( int i = 1; i <= numberOfColumns; i++ )
                                 {
-                                    System.out. print ( resultSet .getObject( i ) + "\t\t");
-                                    System.out. println () ;
+                                    outp = resultSet .getObject( i ) + "\t\t";
+                                    outp = "\n";
                                 }
                         }
                 }
@@ -90,6 +91,7 @@ public class Operations {
                             exception.printStackTrace();
                         }
                 }
+            return outp;
         }
     public static void Insert(String table, String obj)
         {

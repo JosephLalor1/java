@@ -11,6 +11,10 @@ public class ButtonFrame extends JFrame
                 String order = JOptionPane.showInputDialog("Enter new order for table: ");
                 Operations.Insert("orders", order);
             }
+        public static void displayBox()
+            {
+                JOptionPane.showInputDialog(Operations.Display("orders"));
+            }
         public ButtonFrame()
             {
 
