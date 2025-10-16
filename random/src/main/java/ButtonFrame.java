@@ -11,9 +11,9 @@ public class ButtonFrame extends JFrame
                 String order = JOptionPane.showInputDialog("Enter new order for table: ");
                 Operations.Insert("orders", order);
             }
-        public static void displayBox()
+        public void displayBox()
             {
-                JOptionPane.showInputDialog(Operations.Display("orders"));
+                JOptionPane.showMessageDialog(ButtonFrame.this, Operations.Display("orders"));
             }
         public ButtonFrame()
             {
@@ -25,7 +25,7 @@ public class ButtonFrame extends JFrame
                 clearButton.addActionListener(e -> Operations.Clear("orders"));
                 
                 JButton displayButton = new JButton("Display orders");
-                displayButton.addActionListener(e -> Operations.Display("orders"));
+                displayButton.addActionListener(e -> displayBox());
 
                 JButton insertButton = new JButton("Insert order");
                 insertButton.addActionListener(e -> insertBox());

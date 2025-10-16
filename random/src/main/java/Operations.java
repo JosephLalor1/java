@@ -59,20 +59,20 @@ public class Operations {
                     ResultSetMetaData metaData = resultSet.getMetaData();
                     // insert data into table
                     int numberOfColumns = metaData.getColumnCount();
-                    outp= "Orders Database:\n";
+                    outp = outp + "Orders Database:\n";
 
                     for ( int i = 1; i <= numberOfColumns; i++ )
                         {
-                            outp = metaData.getColumnName( i ) + "\t";
-                            outp = "\n";
+                            outp = outp + metaData.getColumnName( i ) + "\t";
+                            outp = outp + "\n";
                         }
 
                     while( resultSet .next() )
                         {
                             for ( int i = 1; i <= numberOfColumns; i++ )
                                 {
-                                    outp = resultSet .getObject( i ) + "\t\t";
-                                    outp = "\n";
+                                    outp = outp + resultSet .getObject( i ) + "\t\t";
+                                    outp = outp + "\n";
                                 }
                         }
                 }

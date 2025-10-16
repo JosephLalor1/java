@@ -10,8 +10,8 @@ public class Start {
             Operations.Connect();
             ButtonFrame buttonFrame = new ButtonFrame();
             buttonFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            buttonFrame.setSize( 400, 350 );
-            buttonFrame. setVisible ( true );
-            buttonFrame.setLocation( 500, 400 );
+            buttonFrame.setSize(400, 350);
+            buttonFrame.setVisible(true);
+            buttonFrame.setLocation(500, 400);
         }
 }
