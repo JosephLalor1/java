@@ -1,19 +1,17 @@
 
 
 
-import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 
 
 public class Start {
     public static void main(String[] args) 
         {
-
-            String order = JOptionPane.showInputDialog("Enter new order for table: ");
             Operations.Connect();
-            Operations.Insert("orders", order);
-            Operations.Clear("orders");
-            Operations.Display("orders");
-            Operations.close();
-
+            ButtonFrame buttonFrame = new ButtonFrame();
+            buttonFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            buttonFrame.setSize( 400, 350 );
+            buttonFrame. setVisible ( true );
+            buttonFrame.setLocation( 500, 400 );
         }
 }
