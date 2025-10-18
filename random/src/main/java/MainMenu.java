@@ -4,8 +4,16 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class ButtonFrame extends JFrame
+public class MainMenu extends JFrame
     {
+        public static void open()
+            {
+                MainMenu buttonFrame = new MainMenu();
+                buttonFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                buttonFrame.setSize(400*2, 350*2);
+                buttonFrame.setVisible(true);
+                buttonFrame.setLocationRelativeTo(null);                
+            }
         public static void insertBox()
             {
                 String order = JOptionPane.showInputDialog("Enter new order for table: ");
@@ -13,9 +21,9 @@ public class ButtonFrame extends JFrame
             }
         public void displayBox()
             {
-                JOptionPane.showMessageDialog(ButtonFrame.this, Operations.Display("orders"));
+                JOptionPane.showMessageDialog(MainMenu.this, Operations.Display("orders"));
             }
-        public ButtonFrame()
+        public MainMenu()
             {
 
                 super("Delivery App");
