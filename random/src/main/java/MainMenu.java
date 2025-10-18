@@ -10,7 +10,7 @@ public class MainMenu extends JFrame
             {
                 MainMenu buttonFrame = new MainMenu();
                 buttonFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                buttonFrame.setSize(400*2, 350*2);
+                buttonFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 buttonFrame.setVisible(true);
                 buttonFrame.setLocationRelativeTo(null);                
             }
