@@ -17,7 +17,7 @@ public class StartFrame
                 starter.setLocationRelativeTo(null);
                 starter.add(label);
 
-                Timer timer = new Timer(5000, e -> {
+                Timer timer = new Timer(1000, e -> {
                     starter.dispose();
                     Operations.Connect();
                     MainMenu.open();
