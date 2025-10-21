@@ -1,3 +1,5 @@
+import java.awt.Dimension;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -6,12 +8,14 @@ public class RestaurantAd extends JButton {
     private String name;
     private String desc;
     private ImageIcon image;
-    public RestaurantAd(String name, String desc, ImageIcon image)
+    public RestaurantAd(String name, String desc, ImageIcon image, int frameWidth)
         {
             super(name + "\n" + desc, image);
             this.setHorizontalTextPosition(SwingConstants.RIGHT);
             this.setHorizontalAlignment(SwingConstants.LEFT);
             this.setIconTextGap(10);
+            this.setVisible(true);
+            this.setPreferredSize(new Dimension((int) (frameWidth * 0.8), 200));
         }
 
     public ImageIcon getImage() {

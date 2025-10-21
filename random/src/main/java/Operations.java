@@ -12,7 +12,6 @@ public class Operations {
         {
             try 
                 {
-                    // establish connection to database
                     connection = DriverManager.getConnection(DATABASE_URL, "root", "pleasantBreeze1645");
                 }
             catch(SQLException sqlException)
@@ -52,12 +51,9 @@ public class Operations {
             ResultSet resultSet = null;
             try 
                 {
-
-                    // create Prepared Statement for inserting data into table
                     pstat = connection.prepareStatement("SELECT * FROM " + table);
                     resultSet = pstat.executeQuery();
                     ResultSetMetaData metaData = resultSet.getMetaData();
-                    // insert data into table
                     int numberOfColumns = metaData.getColumnCount();
                     outp = outp + "Orders Database:\n";
 
@@ -100,10 +96,8 @@ public class Operations {
             int i = 0;
             try 
                 {
-                    // create Prepared Statement for inserting data into table
                     pstat = connection.prepareStatement("INSERT INTO " + table + " (name) VALUES (?)");
                     pstat.setString (1, obj );
-                    // insert data into table
                     i = pstat .executeUpdate();
                     System.out.println(i + " record successfully added to the table .");
                 }
