@@ -9,8 +9,8 @@ import javax.swing.JScrollPane;
 public class MainMenu extends JFrame
     {
         //private JButton clearButton, displayButton;
-        private JPanel container = new JPanel();
-        private JScrollPane scroller = new JScrollPane(container);
+        private JPanel panel = new JPanel();
+        private JScrollPane scroller = new JScrollPane(panel);
         private int numAds = 7;
         private RestaurantAd[] ads = new RestaurantAd[numAds];
         public static void insertBox()
@@ -31,6 +31,8 @@ public class MainMenu extends JFrame
                 this.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 this.setVisible(true);
                 this.setLocationRelativeTo(null);
+                panel.setPreferredSize(this.getSize());
+                scroller.setPreferredSize(this.getSize());
                  
                 ImageIcon food1 = new ImageIcon(MainMenu.class.getResource("/images/icons/food1.jpg"));
 
@@ -43,7 +45,7 @@ public class MainMenu extends JFrame
                     {
                         ads[i] = new RestaurantAd("Insert order", "heelo", food1, this.getWidth());
                         ads[i].addActionListener(e -> insertBox());
-                        container.add(ads[i]);
+                        scroller.add(ads[i]);
                     }
 
                 
