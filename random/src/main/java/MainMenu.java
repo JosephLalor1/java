@@ -1,11 +1,11 @@
-import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
 
 public class MainMenu extends JFrame
     {
@@ -28,20 +28,10 @@ public class MainMenu extends JFrame
 
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                panel.setLayout(new BorderLayout());
-
-                JPanel contentPanel = new JPanel();
-                contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+                panel.setLayout(new FlowLayout());
                 
                 JScrollPane scroller = new JScrollPane(panel);
-                scroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-                scroller.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
-                scroller.setVisible(true);
                 
-                this.getContentPane().add(scroller);
-                
-                panel.setVisible(true);
                 panel.setPreferredSize(this.getSize());
                 scroller.setPreferredSize(panel.getSize());
                 
@@ -61,8 +51,7 @@ public class MainMenu extends JFrame
                         ads[i].addActionListener(e -> insertBox());
                         panel.add(ads[i]);
                     }
-                panel.add(contentPanel, BorderLayout.NORTH);
-                
+                this.getContentPane().add(scroller);
                 this.setLocationRelativeTo(null);
                 this.setVisible(true);
                 
