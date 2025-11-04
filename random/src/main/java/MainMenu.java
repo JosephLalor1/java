@@ -1,5 +1,6 @@
-import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -10,7 +11,6 @@ public class MainMenu extends JFrame
     {
         //private JButton clearButton, displayButton;
         private JPanel panel = new JPanel();
-        private JScrollPane scroller = new JScrollPane(panel);
         private int numAds = 7;
         private RestaurantAd[] ads = new RestaurantAd[numAds];
         public static void insertBox()
@@ -25,16 +25,30 @@ public class MainMenu extends JFrame
         public MainMenu()
             {
                 super("Delivery App");
-                setLayout( new FlowLayout() );
-                add(scroller);
+
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                this.setVisible(true);
-                this.setLocationRelativeTo(null);
+                panel.setLayout(new BorderLayout());
+
+                JPanel contentPanel = new JPanel();
+                contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+                
+                JScrollPane scroller = new JScrollPane(panel);
+                scroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                scroller.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+                scroller.setVisible(true);
+                
+                this.getContentPane().add(scroller);
+                
+                panel.setVisible(true);
                 panel.setPreferredSize(this.getSize());
-                scroller.setPreferredSize(this.getSize());
+                scroller.setPreferredSize(panel.getSize());
+                
                  
+
                 ImageIcon food1 = new ImageIcon(MainMenu.class.getResource("/images/icons/food1.jpg"));
+               
 
                 //clearButton = new JButton("Clear orders");
                 //clearButton.addActionListener(e -> Operations.Clear("orders"));
@@ -45,10 +59,12 @@ public class MainMenu extends JFrame
                     {
                         ads[i] = new RestaurantAd("Insert order", "heelo", food1, this.getWidth());
                         ads[i].addActionListener(e -> insertBox());
-                        scroller.add(ads[i]);
+                        panel.add(ads[i]);
                     }
-
+                panel.add(contentPanel, BorderLayout.NORTH);
                 
+                this.setLocationRelativeTo(null);
+                this.setVisible(true);
                 
                 //add(displayButton);
                 //add(clearButton);
