@@ -1,5 +1,6 @@
-import java.awt.FlowLayout;
+import java.awt.Dimension;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -28,18 +29,16 @@ public class MainMenu extends JFrame
 
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                panel.setLayout(new FlowLayout());
+                panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
                 
                 JScrollPane scroller = new JScrollPane(panel);
-                
-                panel.setPreferredSize(this.getSize());
-                scroller.setPreferredSize(panel.getSize());
-                
-                 
-
+                scroller.getVerticalScrollBar().setUnitIncrement(16);
                 ImageIcon food1 = new ImageIcon(MainMenu.class.getResource("/images/icons/food1.jpg"));
                
-
+                this.getContentPane().add(scroller);
+                this.setLocationRelativeTo(null);
+                this.setVisible(true);
                 //clearButton = new JButton("Clear orders");
                 //clearButton.addActionListener(e -> Operations.Clear("orders"));
                 
@@ -47,13 +46,13 @@ public class MainMenu extends JFrame
                 //displayButton.addActionListener(e -> displayBox());
                 for(int i = 0; i < numAds; i++)
                     {
-                        ads[i] = new RestaurantAd("Insert order", "heelo", food1, this.getWidth());
+                        ads[i] = new RestaurantAd("Insert order", "heelo", food1);
                         ads[i].addActionListener(e -> insertBox());
                         panel.add(ads[i]);
                     }
-                this.getContentPane().add(scroller);
-                this.setLocationRelativeTo(null);
-                this.setVisible(true);
+                panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, numAds * 200));
+                panel.revalidate();
+                panel.repaint();
                 
                 //add(displayButton);
                 //add(clearButton);
