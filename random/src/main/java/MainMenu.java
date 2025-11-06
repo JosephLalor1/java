@@ -50,7 +50,7 @@ public class MainMenu extends JFrame
                         ads[i].addActionListener(e -> insertBox());
                         panel.add(ads[i]);
                     }
-                panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, numAds * 200));
+                panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 100));
                 panel.revalidate();
                 panel.repaint();
                 
