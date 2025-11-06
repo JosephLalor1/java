@@ -30,7 +30,6 @@ public class MainMenu extends JFrame
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
                 
                 JScrollPane scroller = new JScrollPane(panel);
                 scroller.getVerticalScrollBar().setUnitIncrement(16);
