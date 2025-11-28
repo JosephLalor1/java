@@ -20,7 +20,7 @@ public class StartFrame
                 Timer timer = new Timer(1000, e -> {
                     starter.dispose();
                     Operations.Connect();
-                    new MainMenu();
+                    new MainFrame();
                 });
                 timer.setRepeats(false);
                 timer.start();

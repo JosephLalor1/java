@@ -1,6 +1,8 @@
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Image;
 
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -8,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 
-public class MainMenu extends JFrame
+public class MainFrame extends JFrame
     {
         //private JButton clearButton, displayButton;
         private JPanel panel = new JPanel();
@@ -21,23 +23,33 @@ public class MainMenu extends JFrame
             }
         public void displayBox()
             {
-                JOptionPane.showMessageDialog(MainMenu.this, Operations.Display("orders"));
+                JOptionPane.showMessageDialog(MainFrame.this, Operations.Display("orders"));
             }
-        public MainMenu()
+        public MainFrame()
             {
                 super("Delivery App");
 
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+                this.setLayout(new GridBagLayout());
+                GridBagConstraints gbc = new GridBagConstraints();
+                panel.setLayout(new GridLayout(numAds, 1));
                 
                 JScrollPane scroller = new JScrollPane(panel);
                 scroller.getVerticalScrollBar().setUnitIncrement(16);
-                ImageIcon foodLoad = new ImageIcon(MainMenu.class.getResource("/images/icons/food1.jpg"));
-                Image foodScale = foodLoad.getImage().getScaledInstance(400, 200, Image.SCALE_DEFAULT);
+                ImageIcon foodLoad = new ImageIcon(MainFrame.class.getResource("/images/icons/food1.jpg"));
+                Image foodScale = foodLoad.getImage().getScaledInstance(400, 300, Image.SCALE_DEFAULT);
                 ImageIcon food = new ImageIcon(foodScale);
-               
-                this.getContentPane().add(scroller);
+                
+                MenuBar menuBar = new MenuBar();
+                gbc.gridx = 0;
+                gbc.gridy = 0;
+                this.getContentPane().add(menuBar, gbc);
+                gbc.gridx = 0;
+                gbc.gridy = 4;
+                gbc.gridheight = 4;
+                gbc.fill = GridBagConstraints.VERTICAL;
+                this.getContentPane().add(scroller, gbc);
                 this.setLocationRelativeTo(null);
                 this.setVisible(true);
                 //clearButton = new JButton("Clear orders");
