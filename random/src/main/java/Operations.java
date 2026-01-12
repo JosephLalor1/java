@@ -12,7 +12,7 @@ public class Operations {
         {
             try 
                 {
-                    connection = DriverManager.getConnection(DATABASE_URL, "root", "pleasantBreeze1645");
+                    connection = DriverManager.getConnection(DATABASE_URL, "root", "root");
                 }
             catch(SQLException sqlException)
                 {
