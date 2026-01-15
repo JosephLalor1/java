@@ -15,7 +15,7 @@ public class RestaurantAd extends JButton {
             this.setHorizontalAlignment(SwingConstants.LEFT);
             this.setIconTextGap(10);
             this.setVisible(true);
-            this.setMaximumSize(new Dimension(Integer.MAX_VALUE, 500));
+            this.setMaximumSize(new Dimension(2000, 500));
         }
 
     public ImageIcon getImage() {
