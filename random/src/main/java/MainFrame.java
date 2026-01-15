@@ -2,6 +2,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.BorderLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -20,7 +21,7 @@ public class MainFrame extends JFrame
                 super("Delivery App");
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                this.setContentPane(mp);
+                this.add(mp, BorderLayout.CENTER);
                 this.setLocationRelativeTo(null);
                 this.pack();
                 this.setVisible(true);

@@ -32,7 +32,7 @@ public class MainPanel extends JPanel
                 JScrollPane scroller = new JScrollPane(panel);
                 scroller.getVerticalScrollBar().setUnitIncrement(16);
                 ImageIcon foodLoad = new ImageIcon (MainPanel.class.getResource("/images/icons/food1.jpg"));
-                Image foodScale = foodLoad.getImage().getScaledInstance(400, 300, Image.SCALE_DEFAULT);
+                Image foodScale = foodLoad.getImage().getScaledInstance(400, 200, Image.SCALE_DEFAULT);
                 ImageIcon food = new ImageIcon(foodScale);
                 
                 this.setLayout(new GridBagLayout());
@@ -41,13 +41,16 @@ public class MainPanel extends JPanel
                 MenuBar menuBar = new MenuBar();
                 gbc.gridx = 0;
                 gbc.gridy = 0;
+                gbc.weightx = 1;
                 gbc.gridwidth = 4;
+                gbc.gridheight = 1;
                 gbc.fill = GridBagConstraints.HORIZONTAL;
                 this.add(menuBar, gbc);
                 gbc.gridx = 0;
                 gbc.gridy = 1;
-                gbc.gridheight = 4;
-                gbc.fill = GridBagConstraints.VERTICAL;
+                gbc.weighty = 1;
+                gbc.gridheight = 3;
+                gbc.fill = GridBagConstraints.BOTH;
                 this.add(scroller, gbc);
                 this.setVisible(true);
                 //clearButton = new JButton("Clear orders");
