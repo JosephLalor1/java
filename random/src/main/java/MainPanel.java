@@ -1,3 +1,4 @@
+import java.awt.CardLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -12,9 +13,13 @@ import javax.swing.JScrollPane;
 public class MainPanel extends JPanel
     {
         //private JButton clearButton, displayButton;
-        private JPanel panel = new JPanel();
+        private JPanel card1 = new JPanel();
         private int numAds = 10;
         private RestaurantAd[] ads = new RestaurantAd[numAds];
+        public static void openRestaurant()
+            {
+
+            }
         public static void insertBox()
             {
                 String order = JOptionPane.showInputDialog("Enter new order for table: ");
@@ -26,10 +31,13 @@ public class MainPanel extends JPanel
             }
         public MainPanel()
             {
+                final String HOMEPAGE = "Home page";
+                JPanel cards = new JPanel(new CardLayout());
                 
-                panel.setLayout(new GridLayout(numAds, 1));
+                cards.add(card1, HOMEPAGE);
+                card1.setLayout(new GridLayout(numAds, 1));
                 
-                JScrollPane scroller = new JScrollPane(panel);
+                JScrollPane scroller = new JScrollPane(card1);
                 scroller.getVerticalScrollBar().setUnitIncrement(16);
                 ImageIcon foodLoad = new ImageIcon (MainPanel.class.getResource("/images/icons/food1.jpg"));
                 Image foodScale = foodLoad.getImage().getScaledInstance(400, 200, Image.SCALE_DEFAULT);
@@ -64,7 +72,7 @@ public class MainPanel extends JPanel
                     {
                         ads[i] = new RestaurantAd("Insert order", "hello", food);
                         ads[i].addActionListener(e -> insertBox());
-                        panel.add(ads[i]);
+                        card1.add(ads[i]);
                     }
                 //panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 100));
                 //panel.revalidate();
