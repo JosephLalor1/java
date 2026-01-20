@@ -20,10 +20,10 @@ public class MainFrame extends JFrame
             {
                 super("Delivery App");
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                this.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 this.add(mp, BorderLayout.CENTER);
                 this.setLocationRelativeTo(null);
                 this.pack();
                 this.setVisible(true);
+                this.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }
     }

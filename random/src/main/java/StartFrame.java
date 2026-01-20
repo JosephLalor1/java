@@ -12,10 +12,11 @@ public class StartFrame
                 JFrame starter = new JFrame("Welcome!");
                 JLabel label = new JLabel(welcome);
                 
-                starter.setSize(1152, 648);
+                starter.setSize(Integer.MAX_VALUE, Integer.MAX_VALUE);
                 starter.setVisible(true);
                 starter.setLocationRelativeTo(null);
                 starter.add(label);
+                starter.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
                 Timer timer = new Timer(1000, e -> {
                     starter.dispose();
